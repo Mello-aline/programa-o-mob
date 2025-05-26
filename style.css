@@ -1,0 +1,273 @@
+/* Estilos Gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #fff9f9;
+    color: #333;
+}
+
+.screen {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px 0;
+    border-bottom: 1px solid #f0e6e6;
+}
+
+header h1 {
+    font-size: 28px;
+    color: #d85a7f;
+    margin-bottom: 5px;
+}
+
+header h2 {
+    font-size: 16px;
+    color: #a8a8a8;
+    font-weight: normal;
+}
+
+/* Tela de Login */
+.login-screen {
+    justify-content: center;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.login-form input {
+    padding: 12px;
+    border: 1px solid #e0c8d1;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.login-btn {
+    background-color: #d85a7f;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #c04a6f;
+}
+
+/* Menu Principal */
+.menu-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.menu-btn {
+    background-color: #f8e1e7;
+    color: #d85a7f;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.menu-btn:hover {
+    background-color: #f0d1d9;
+}
+
+/* Categorias */
+.category-screen header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.back-btn {
+    position: absolute;
+    left: 0;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #d85a7f;
+    cursor: pointer;
+}
+
+.items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #faf5f5;
+    border-radius: 8px;
+}
+
+.item h3 {
+    font-size: 16px;
+    color: #555;
+}
+
+.item p {
+    font-size: 16px;
+    font-weight: bold;
+    color: #d85a7f;
+}
+
+.add-btn {
+    background-color: #d85a7f;
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sweets-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.sweets-table th, .sweets-table td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #f0e6e6;
+}
+
+.sweets-table th {
+    color: #d85a7f;
+    font-weight: normal;
+}
+
+.sweets-table td {
+    font-weight: bold;
+}
+
+/* Carrinho */
+.cart-screen {
+    justify-content: flex-start;
+}
+
+.cart-items {
+    flex-grow: 1;
+    margin-bottom: 20px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #f0e6e6;
+}
+
+.total-section {
+    padding: 20px 0;
+    text-align: right;
+    border-top: 1px solid #f0e6e6;
+    margin-bottom: 20px;
+}
+
+.total-section h3 {
+    font-size: 18px;
+    color: #555;
+}
+
+.checkout-btn {
+    background-color: #d85a7f;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.checkout-btn:hover {
+    background-color: #c04a6f;
+}
+
+/* Pagamento */
+.payment-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.payment-btn {
+    background-color: #f8e1e7;
+    color: #d85a7f;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.payment-btn:hover {
+    background-color: #f0d1d9;
+}
+
+/* Agradecimento */
+.thank-you-screen {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.thank-you-screen h1 {
+    margin-bottom: 30px;
+    color: #d85a7f;
+}
+
+.return-btn {
+    background-color: #f8e1e7;
+    color: #d85a7f;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.return-btn:hover {
+    background-color: #f0d1d9;
+}

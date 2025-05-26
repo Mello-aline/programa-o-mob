@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Patisserie - Confeitaria</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Tela de Login -->
+    <div class="screen login-screen" id="loginScreen">
+        <header>
+            <h1>La Patisserie</h1>
+            <h2>CONFEITARIA</h2>
+        </header>
+        
+        <div class="login-form">
+            <input type="text" placeholder="Email">
+            <input type="password" placeholder="Senha">
+            <button class="login-btn">Login</button>
+        </div>
+    </div>
+
+    <!-- Menu Principal -->
+    <div class="screen main-menu" id="mainMenu" style="display: none;">
+        <header>
+            <h1>La Patisserie</h1>
+            <h2>CONFEITARIA</h2>
+        </header>
+        
+        <div class="menu-options">
+            <button class="menu-btn" onclick="showCategory('salgados')">Salgados</button>
+            <button class="menu-btn" onclick="showCategory('doces')">Doces</button>
+            <button class="menu-btn" onclick="showCategory('bebidas')">Bebidas</button>
+        </div>
+    </div>
+
+    <!-- Categoria Salgados -->
+    <div class="screen category-screen" id="salgadosScreen" style="display: none;">
+        <header>
+            <h1>Salgados</h1>
+            <button class="back-btn" onclick="backToMainMenu()">←</button>
+        </header>
+        
+        <div class="items-list">
+            <div class="item">
+                <h3>Empadinhas</h3>
+                <p>5,00</p>
+                <button class="add-btn" onclick="addToCart('Empadinhas', 5.00)">+</button>
+            </div>
+            <div class="item">
+                <h3>Batata Frita 200g</h3>
+                <p>20,00</p>
+                <button class="add-btn" onclick="addToCart('Batata Frita 200g', 20.00)">+</button>
+            </div>
+            <div class="item">
+                <h3>Sanduiche natural</h3>
+                <p>7,00</p>
+                <button class="add-btn" onclick="addToCart('Sanduiche natural', 7.00)">+</button>
+            </div>
+            <div class="item">
+                <h3>Pão de Queijo</h3>
+                <p>1,50</p>
+                <button class="add-btn" onclick="addToCart('Pão de Queijo', 1.50)">+</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Categoria Doces -->
+    <div class="screen category-screen" id="docesScreen" style="display: none;">
+        <header>
+            <h1>Doces</h1>
+            <button class="back-btn" onclick="backToMainMenu()">←</button>
+        </header>
+        
+        <table class="sweets-table">
+            <tr>
+                <th>Torta</th>
+                <th>Bolos</th>
+                <th>Cupcake</th>
+                <th>Cookies</th>
+            </tr>
+            <tr>
+                <td>8,00 <button class="add-btn" onclick="addToCart('Torta', 8.00)">+</button></td>
+                <td>12,00 <button class="add-btn" onclick="addToCart('Bolos', 12.00)">+</button></td>
+                <td>16,00 <button class="add-btn" onclick="addToCart('Cupcake', 16.00)">+</button></td>
+                <td>3,50 <button class="add-btn" onclick="addToCart('Cookies', 3.50)">+</button></td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Categoria Bebidas -->
+    <div class="screen category-screen" id="bebidasScreen" style="display: none;">
+        <header>
+            <h1>Bebidas</h1>
+            <button class="back-btn" onclick="backToMainMenu()">←</button>
+        </header>
+        
+        <div class="items-list">
+            <div class="item">
+                <h3>lata refri c/sem açucar</h3>
+                <p>7,00</p>
+                <button class="add-btn" onclick="addToCart('lata refri c/sem açucar', 7.00)">+</button>
+            </div>
+            <div class="item">
+                <h3>Sucos com água/leite</h3>
+                <p>12,00</p>
+                <button class="add-btn" onclick="addToCart('Sucos com água/leite', 12.00)">+</button>
+            </div>
+            <div class="item">
+                <h3>Milkshake</h3>
+                <p>14,00</p>
+                <button class="add-btn" onclick="addToCart('Milkshake', 14.00)">+</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Carrinho -->
+    <div class="screen cart-screen" id="cartScreen" style="display: none;">
+        <header>
+            <h1>Carrinho</h1>
+            <button class="back-btn" onclick="backToMainMenu()">←</button>
+        </header>
+        
+        <div class="cart-items" id="cartItems">
+            <!-- Itens serão adicionados dinamicamente aqui -->
+        </div>
+        
+        <div class="total-section">
+            <h3>Total: R$ <span id="totalAmount">0,00</span></h3>
+        </div>
+        
+        <button class="checkout-btn" onclick="showPaymentOptions()">Finalizar Compra</button>
+    </div>
+
+    <!-- Formas de Pagamento -->
+    <div class="screen payment-screen" id="paymentScreen" style="display: none;">
+        <header>
+            <h1>Formas de Pagamento</h1>
+            <button class="back-btn" onclick="backToCart()">←</button>
+        </header>
+        
+        <div class="payment-options">
+            <button class="payment-btn">Pix</button>
+            <button class="payment-btn">Cartão de debito/credito</button>
+        </div>
+    </div>
+
+    <!-- Agradecimento -->
+    <div class="screen thank-you-screen" id="thankYouScreen" style="display: none;">
+        <header>
+            <h1>Agradecemos pela preferência!</h1>
+        </header>
+        
+        <button class="return-btn" onclick="returnToMainMenu()">Voltar ao Menu</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
