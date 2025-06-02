@@ -1,160 +1,262 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La Patisserie - Confeitaria</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <!-- Tela de Login -->
-    <div class="screen login-screen" id="loginScreen">
-        <header>
-            <h1>La Patisserie</h1>
-            <h2>CONFEITARIA</h2>
-        </header>
-        
-        <div class="login-form">
-            <input type="text" placeholder="Email">
-            <input type="password" placeholder="Senha">
-            <button class="login-btn">Login</button>
+    <!-- Header (com logo) -->
+    <header>
+        <div class="logo">
+            <img src="assets/logo.png" alt="La Patisserie" class="logo-img">
         </div>
-    </div>
-
-    <!-- Menu Principal -->
-    <div class="screen main-menu" id="mainMenu" style="display: none;">
-        <header>
-            <h1>La Patisserie</h1>
-            <h2>CONFEITARIA</h2>
-        </header>
-        
-        <div class="menu-options">
-            <button class="menu-btn" onclick="showCategory('salgados')">Salgados</button>
-            <button class="menu-btn" onclick="showCategory('doces')">Doces</button>
-            <button class="menu-btn" onclick="showCategory('bebidas')">Bebidas</button>
+        <nav>
+            <ul>
+                <li><a href="#doces">Doces</a></li>
+                <li><a href="#salgados">Salgados</a></li>
+                <li><a href="#bebidas">Bebidas</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+        <div class="user-actions">
+            <a href="#" id="login-btn"><i class="fas fa-user"></i></a>
+            <a href="#" id="cart-btn" class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </a>
         </div>
-    </div>
+    </header>
 
-    <!-- Categoria Salgados -->
-    <div class="screen category-screen" id="salgadosScreen" style="display: none;">
-        <header>
-            <h1>Salgados</h1>
-            <button class="back-btn" onclick="backToMainMenu()">←</button>
-        </header>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Delícias que encantam</h1>
+            <p>Experimente nossos doces, salgados e bebidas feitos com ingredientes selecionados e muito carinho.</p>
+            <a href="#menu" class="btn">Ver Menu</a>
+        </div>
+    </section>
+
+    <!-- Cardápio (Doces/Salgados/Bebidas) -->
+ <div class="container">
+    <section id="menu">
+        <h2 class="section-title">Nosso Cardápio</h2>
         
-        <div class="items-list">
-            <div class="item">
-                <h3>Empadinhas</h3>
-                <p>5,00</p>
-                <button class="add-btn" onclick="addToCart('Empadinhas', 5.00)">+</button>
+        <!-- Filtros -->
+        <div class="category-selector">
+            <button class="category-btn active" data-category="all">Tudo</button>
+            <button class="category-btn" data-category="doces">Doces</button>
+            <button class="category-btn" data-category="salgados">Salgados</button>
+            <button class="category-btn" data-category="bebidas">Bebidas</button>
+        </div>
+        
+        <!-- Itens do Menu -->
+        <div class="menu-grid">
+            <!-- Doces -->
+            <div class="menu-item" data-category="doces">
+                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Bolo de Chocolate">
+                <div class="menu-item-content">
+                    <h3 class="menu-item-title">Bolo de Chocolate</h3>
+                    <p class="menu-item-description">Bolo macio com recheio de ganache e cobertura de chocolate belga.</p>
+                    <p class="menu-item-price">R$ 45,00</p>
+                    <button class="add-to-cart">Adicionar ao Carrinho</button>
+                </div>
             </div>
-            <div class="item">
-                <h3>Batata Frita 200g</h3>
-                <p>20,00</p>
-                <button class="add-btn" onclick="addToCart('Batata Frita 200g', 20.00)">+</button>
+            
+            <div class="menu-item" data-category="doces">
+                <img src="https://i.pinimg.com/736x/ea/ff/ec/eaffecea0eff972f73d646aacef67605.jpg" alt="Torta de Morango" alt="Torta de Morango">
+                <div class="menu-item-content">
+                    <h3 class="menu-item-title">Torta de Morango</h3>
+                    <p class="menu-item-description">Torta com massa amanteigada, creme de baunilha e morangos frescos.</p>
+                    <p class="menu-item-price">R$ 35,00</p>
+                    <button class="add-to-cart">Adicionar ao Carrinho</button>
+                </div>
             </div>
-            <div class="item">
-                <h3>Sanduiche natural</h3>
-                <p>7,00</p>
-                <button class="add-btn" onclick="addToCart('Sanduiche natural', 7.00)">+</button>
+            
+            <div class="menu-item" data-category="doces">
+                <img src="https://images.unsplash.com/photo-1614707267537-b85aaf00c4b7?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Cupcake">
+                <div class="menu-item-content">
+                    <h3 class="menu-item-title">Cupcake Especial</h3>
+                    <p class="menu-item-description">Cupcake com massa de baunilha e cobertura de buttercream.</p>
+                    <p class="menu-item-price">R$ 12,00</p>
+                    <button class="add-to-cart">Adicionar ao Carrinho</button>
+                </div>
             </div>
-            <div class="item">
-                <h3>Pão de Queijo</h3>
-                <p>1,50</p>
-                <button class="add-btn" onclick="addToCart('Pão de Queijo', 1.50)">+</button>
+            
+            <div class="menu-item" data-category="doces">
+                <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Cookies">
+                <div class="menu-item-content">
+                    <h3 class="menu-item-title">Cookies Artesanais</h3>
+                    <p class="menu-item-description">Cookies crocantes com gotas de chocolate meio amargo.</p>
+                    <p class="menu-item-price">R$ 8,00 (unidade)</p>
+                    <button class="add-to-cart">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            
+            <!-- Salgados -->
+            <div class="menu-item" data-category="salgados">
+                <img src="https://i.pinimg.com/736x/b7/f7/23/b7f723e637cb0b652fec4134a72ada0e.jpg" alt="Empada">
+                <div class="menu-item-content">
+                    <h3 class="menu-item-title">Empada de Frango</h3>
+                    <p class="menu-item-description">Empada com massa folhada e recheio de frango desfiado.</p>
+                    <p class="menu-item-price">R$ 10,00</p>
+                    <button class="add-to-cart">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            
+            <div class="menu-item" data-category="salgados">
+                <img src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Batata Frita">
+                <div class="menu-item-content">
+                    <h3 class="menu-item-title">Batata Frita Crocante</h3>
+                    <p class="menu-item-description">Porção de batata frita crocante com molho especial.</p>
+                    <p class="menu-item-price">R$ 18,00</p>
+                    <button class="add-to-cart">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            
+            <div class="menu-item" data-category="salgados">
+                <img src="https://i.pinimg.com/736x/fb/e9/9e/fbe99e0b35f932c31719b159ead1b5d5.jpg" alt="Sanduíche Natural">
+                <div class="menu-item-content">
+                    <h3 class="menu-item-title">Sanduíche Natural</h3>
+                    <p class="menu-item-description">Pão integral com peito de peru, queijo branco e vegetais frescos.</p>
+                    <p class="menu-item-price">R$ 22,00</p>
+                    <button class="add-to-cart">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            
+            <div class="menu-item" data-category="salgados">
+                <img src="https://i.pinimg.com/736x/e5/cd/6b/e5cd6b0e847b606a583a3f4615644bc3.jpg" alt="Pão de Queijo">
+                <div class="menu-item-content">
+                    <h3 class="menu-item-title">Pão de Queijo</h3>
+                    <p class="menu-item-description">Pão de queijo mineiro tradicional, feito com queijo canastra.</p>
+                    <p class="menu-item-price">R$ 6,00 (unidade)</p>
+                    <button class="add-to-cart">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            
+            <!-- Bebidas -->
+            <div class="menu-item" data-category="bebidas">
+                <img src="https://images.unsplash.com/photo-1561758033-48d52648ae8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Coca-Cola">
+                <div class="menu-item-content">
+                    <h3 class="menu-item-title">Coca-Cola</h3>
+                    <p class="menu-item-description">Lata 350ml de Coca-Cola gelada.</p>
+                    <p class="menu-item-price">R$ 6,00</p>
+                    <button class="add-to-cart">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            
+            <div class="menu-item" data-category="bebidas">
+                <img src="https://images.unsplash.com/photo-1603569283847-aa295f0d016a?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Suco Natural">
+                <div class="menu-item-content">
+                    <h3 class="menu-item-title">Suco Natural</h3>
+                    <p class="menu-item-description">Suco natural feito na hora (laranja, abacaxi ou maracujá).</p>
+                    <p class="menu-item-price">R$ 12,00</p>
+                    <button class="add-to-cart">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            
+            <div class="menu-item" data-category="bebidas">
+                <img src="https://i.pinimg.com/736x/f3/88/91/f38891ec8c049f04c4e317ff28bd0771.jpg" alt="Milkshake">
+                <div class="menu-item-content">
+                    <h3 class="menu-item-title">Milkshake</h3>
+                    <p class="menu-item-description">Milkshake cremoso (chocolate, morango ou baunilha).</p>
+                    <p class="menu-item-price">R$ 18,00</p>
+                    <button class="add-to-cart">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            
+            <div class="menu-item" data-category="bebidas">
+                <img src="https://i.pinimg.com/736x/03/fd/b9/03fdb975fe206a8c214e1d4ba8ab6b44.jpg" alt="Água Mineral">
+                <div class="menu-item-content">
+                    <h3 class="menu-item-title">Água Mineral</h3>
+                    <p class="menu-item-description">Garrafa 500ml de água mineral com ou sem gás.</p>
+                    <p class="menu-item-price">R$ 5,00</p>
+                    <button class="add-to-cart">Adicionar ao Carrinho</button>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Categoria Doces -->
-    <div class="screen category-screen" id="docesScreen" style="display: none;">
-        <header>
-            <h1>Doces</h1>
-            <button class="back-btn" onclick="backToMainMenu()">←</button>
-        </header>
-        
-        <table class="sweets-table">
-            <tr>
-                <th>Torta</th>
-                <th>Bolos</th>
-                <th>Cupcake</th>
-                <th>Cookies</th>
-            </tr>
-            <tr>
-                <td>8,00 <button class="add-btn" onclick="addToCart('Torta', 8.00)">+</button></td>
-                <td>12,00 <button class="add-btn" onclick="addToCart('Bolos', 12.00)">+</button></td>
-                <td>16,00 <button class="add-btn" onclick="addToCart('Cupcake', 16.00)">+</button></td>
-                <td>3,50 <button class="add-btn" onclick="addToCart('Cookies', 3.50)">+</button></td>
-            </tr>
-        </table>
-    </div>
+        <!-- Formas de Pagamento -->
+        <section class="payment-methods">
+            <h3>Formas de Pagamento</h3>
+            <div class="payment-options">
+                <div class="payment-option">
+                    <i class="fab fa-pix"></i>
+                    <span>PIX</span>
+                </div>
+                <div class="payment-option">
+                    <i class="fas fa-credit-card"></i>
+                    <span>Cartão de Crédito</span>
+                </div>
+                <div class="payment-option">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <span>Dinheiro</span>
+                </div>
+                <div class="payment-option">
+                    <i class="fas fa-mobile-alt"></i>
+                    <span>Pagamento Digital</span>
+                </div>
+            </div>
+        </section>
 
-    <!-- Categoria Bebidas -->
-    <div class="screen category-screen" id="bebidasScreen" style="display: none;">
-        <header>
-            <h1>Bebidas</h1>
-            <button class="back-btn" onclick="backToMainMenu()">←</button>
-        </header>
-        
-        <div class="items-list">
-            <div class="item">
-                <h3>lata refri c/sem açucar</h3>
-                <p>7,00</p>
-                <button class="add-btn" onclick="addToCart('lata refri c/sem açucar', 7.00)">+</button>
-            </div>
-            <div class="item">
-                <h3>Sucos com água/leite</h3>
-                <p>12,00</p>
-                <button class="add-btn" onclick="addToCart('Sucos com água/leite', 12.00)">+</button>
-            </div>
-            <div class="item">
-                <h3>Milkshake</h3>
-                <p>14,00</p>
-                <button class="add-btn" onclick="addToCart('Milkshake', 14.00)">+</button>
-            </div>
-        </div>
+        <!-- Login -->
+         <section class="login-section" id="login-section" style="display: none;">
+            <h3>Login</h3>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="login-btn">Entrar</button>
+            </form>
+            <p class="register-link">Não tem uma conta? <a href="#">Cadastre-se</a></p>
+        </section>
     </div>
 
     <!-- Carrinho -->
-    <div class="screen cart-screen" id="cartScreen" style="display: none;">
-        <header>
-            <h1>Carrinho</h1>
-            <button class="back-btn" onclick="backToMainMenu()">←</button>
-        </header>
-        
-        <div class="cart-items" id="cartItems">
-            <!-- Itens serão adicionados dinamicamente aqui -->
+       <div class="overlay" id="overlay"></div>
+    
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Seu Carrinho</h3>
+            <button class="close-cart" id="close-cart">&times;</button>
         </div>
-        
-        <div class="total-section">
-            <h3>Total: R$ <span id="totalAmount">0,00</span></h3>
+        <div class="cart-items" id="cart-items">
+            
+            <p class="empty-cart-message">Seu carrinho está vazio</p>
         </div>
-        
-        <button class="checkout-btn" onclick="showPaymentOptions()">Finalizar Compra</button>
-    </div>
-
-    <!-- Formas de Pagamento -->
-    <div class="screen payment-screen" id="paymentScreen" style="display: none;">
-        <header>
-            <h1>Formas de Pagamento</h1>
-            <button class="back-btn" onclick="backToCart()">←</button>
-        </header>
-        
-        <div class="payment-options">
-            <button class="payment-btn">Pix</button>
-            <button class="payment-btn">Cartão de debito/credito</button>
+        <div class="cart-summary" id="cart-summary" style="display: none;">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total">R$ 0,00</span>
+            </div>
+            <button class="checkout-btn">Finalizar Compra</button>
         </div>
     </div>
 
-    <!-- Agradecimento -->
-    <div class="screen thank-you-screen" id="thankYouScreen" style="display: none;">
-        <header>
-            <h1>Agradecemos pela preferência!</h1>
-        </header>
-        
-        <button class="return-btn" onclick="returnToMainMenu()">Voltar ao Menu</button>
-    </div>
+    <!-- Rodapé -->
+      <footer>
+        <div class="footer-links">
+            <a href="#">Sobre Nós</a>
+            <a href="#">Contato</a>
+            <a href="#">Termos de Serviço</a>
+            <a href="#">Política de Privacidade</a>
+        </div>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <p>&copy; 2025 Lá Patisserie - Todos os direitos reservados</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
-</html>
+</html> 
